@@ -91,6 +91,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* keep with body's overflow-x:hidden — some mobile browsers still let the
+     root scroll sideways otherwise (reveal-* transforms briefly poke past) */
+  overflow-x: hidden;
 }
 
 body {
@@ -1217,8 +1220,9 @@ h1, h2, h3, h4 {
 .prod-hero-bg {
   position: absolute;
   inset: 0;
-    background-size: 50%;
-    background-position: right 80%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right 80%;
   transform: scale(1.04);
   animation: heroZoom 8s ease forwards;
 }
@@ -3053,6 +3057,14 @@ h1, h2, h3, h4 {
   .navbar, .navbar.scrolled {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+  }
+
+  /* the desktop scale(2.5) is centred, so at mobile width the enlarged logo
+     spills past the left edge and adds sideways scroll — pin it to the left
+     and scale down */
+  .nav-logo {
+    transform: scale(1.7);
+    transform-origin: left center;
   }
 
   .nav-menu {
