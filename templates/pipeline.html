@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{meta.pipeline.title}}</title>
+  <meta name="description" content="{{meta.pipeline.desc}}">
+  <link rel="icon" href="{{ASSET_PREFIX}}images/logo/logo.svg" type="image/svg+xml">
+{{HREFLANG}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ASSET_PREFIX}}css/style.css">
+</head>
+<body{{BODY_CLASS_ATTR}}>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">{{nav.home}}</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html" class="nav-link">{{nav.company}} <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">{{nav.about}}</a></li>
+          <li><a href="contact.html">{{nav.contact}}</a></li>
+        </ul>
+      </li>
+      <li><a href="science.html" class="nav-link active">{{nav.science}}</a></li>
+      <li><a href="psoriasis.html" class="nav-link">{{nav.disease}}</a></li>
+      <li><a href="contact.html" class="btn btn-primary">{{nav.cta}}</a></li>
+{{LANG_SWITCHER}}
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero page-hero-img">
+  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/pipeline.jpg')"></div>
+  <div class="phimg-overlay"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">{{breadcrumb.home}}</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="research.html">{{breadcrumb.science}}</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="current">{{pipeline.hero.breadcrumb}}</span>
+      </div>
+      <div class="section-label">{{pipeline.hero.label}}</div>
+      <h1>{{pipeline.hero.h1.pre}} <span class="gradient-text">{{pipeline.hero.h1.accent}}</span></h1>
+      <p>{{pipeline.hero.p}}</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Pipeline Chart -->
+<section class="section pipeline-full">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-label">{{pipeline.overview.label}}</div>
+      <h2 class="section-title">{{pipeline.overview.h2}}</h2>
+      <p class="section-subtitle">{{pipeline.overview.sub}}</p>
+    </div>
+
+    <div class="pipeline-wrapper reveal-up" style="--delay:0.12s">
+      <div class="pipeline-table">
+        <div class="pt-header">
+          <div class="pt-h">{{pipeline.table.col1}}</div>
+          <div class="pt-h">{{pipeline.table.col2}}</div>
+          <div class="pt-h">{{pipeline.table.col3}}</div>
+          <div class="pt-h">{{pipeline.table.col4}}</div>
+          <div class="pt-h">{{pipeline.table.col5}}</div>
+          <div class="pt-h">{{pipeline.table.col6}}</div>
+          <div class="pt-h">{{pipeline.table.col7}}</div>
+        </div>
+        <div class="pt-row">
+          <div class="pt-drug">
+            <div class="pt-name">PRC0028</div>
+            <div class="pt-ind">{{pipeline.row1.ind}}</div>
+          </div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell active"></div>
+          <div class="pt-cell"></div>
+        </div>
+        <div class="pt-row">
+          <div class="pt-drug">
+            <div class="pt-name">PRC0028</div>
+            <div class="pt-ind">{{pipeline.row2.ind}}</div>
+          </div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell active"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+        </div>
+        <div class="pt-row">
+          <div class="pt-drug">
+            <div class="pt-name">PRC0028</div>
+            <div class="pt-ind">{{pipeline.row3.ind}}</div>
+          </div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell active"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+        </div>
+        <div class="pt-row">
+          <div class="pt-drug">
+            <div class="pt-name">BA01</div>
+            <div class="pt-ind">{{pipeline.row4.ind}}</div>
+          </div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell active"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+        </div>
+        <div class="pt-row">
+          <div class="pt-drug">
+            <div class="pt-name">ALX-03</div>
+            <div class="pt-ind">{{pipeline.row5.ind}}</div>
+          </div>
+          <div class="pt-cell done"></div>
+          <div class="pt-cell active"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+          <div class="pt-cell"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pipeline-legend reveal-up" style="--delay:0.2s">
+      <div class="legend-item"><span class="legend-dot done"></span> {{pipeline.legend.done}}</div>
+      <div class="legend-item"><span class="legend-dot active"></span> {{pipeline.legend.active}}</div>
+      <div class="legend-item"><span class="legend-dot empty"></span> {{pipeline.legend.empty}}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Pipeline Image -->
+<section class="section pipeline-image-section">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{pipeline.visual.label}}</div>
+      <h2 class="section-title">{{pipeline.visual.h2}}</h2>
+    </div>
+    <div class="pipeline-img-wrapper reveal-up" style="--delay:0.1s">
+      <img src="https://alsyslife.com/wp-content/uploads/2026/01/Screenshot-2026-01-05-141216.png" alt="AlsysLife Therapeutic Pipeline Chart" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Drug Candidate Detail -->
+<section class="section" style="background:var(--bg-100)">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{pipeline.candidates.label}}</div>
+      <h2 class="section-title">{{pipeline.candidates.h2}}</h2>
+      <p class="section-subtitle">{{pipeline.candidates.sub}}</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal-up" style="--delay:0.06s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+        </div>
+        <h3>{{pipeline.prc.h3}}</h3>
+        <p>{{pipeline.prc.p}}</p>
+        <div class="trial-status" style="margin-top:18px;">{{pipeline.prc.status}}</div>
+      </div>
+      <div class="why-card reveal-up" style="--delay:0.12s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+        </div>
+        <h3>{{pipeline.ba01.h3}}</h3>
+        <p>{{pipeline.ba01.p}}</p>
+        <div class="trial-status" style="margin-top:18px;">{{pipeline.ba01.status}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{pipeline.cta.h2}}</h2>
+    <p>{{pipeline.cta.p}}</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn btn-primary">{{pipeline.cta.btn1}}</a>
+      <a href="clinical-trials.html" class="btn btn-outline">{{pipeline.cta.btn2}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife" class="footer-logo">
+        <p class="footer-desc">{{footer.desc}}</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="social-link" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.science}}</div>
+        <ul class="footer-links">
+          <li><a href="research.html">{{footer.link.rd}}</a></li>
+          <li><a href="pipeline.html">{{footer.link.pipeline}}</a></li>
+          <li><a href="clinical-trials.html">{{footer.link.clinical}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.company}}</div>
+        <ul class="footer-links">
+          <li><a href="about.html">{{footer.link.about}}</a></li>
+          <li><a href="contact.html">{{footer.link.contact}}</a></li>
+          <li><a href="psoriasis.html">{{footer.link.disease}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.offices}}</div>
+        <div class="footer-office"><div class="fo-country">🇨🇭 Switzerland</div><div class="fo-addr">{{footer.addr.ch}}</div></div>
+        <div class="footer-office"><div class="fo-country">🇺🇸 United States</div><div class="fo-addr">{{footer.addr.us}}</div></div>
+        <div class="footer-office"><div class="fo-country">🇮🇳 India</div><div class="fo-addr">{{footer.addr.in}}</div></div>
+      </div>
+    </div>
+{{FOOTER_LANGUAGES}}
+    <div class="footer-bottom">
+      <span class="footer-copy">{{footer.copy}}</span>
+      <div class="footer-legal"><a href="#">{{footer.legal.privacy}}</a><a href="#">{{footer.legal.terms}}</a></div>
+    </div>
+  </div>
+</footer>
+
+{{DISCLAIMER_DATA}}
+<script src="{{ASSET_PREFIX}}js/main.js"></script>
+</body>
+</html>

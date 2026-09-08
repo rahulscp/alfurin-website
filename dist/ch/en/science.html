@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALFURIN | The Science — From Bark to Cream</title>
+  <meta name="description" content="Discover the plant science behind ALFURIN &#8212; a single bark extract from Limonia acidissima, independently patch-tested and dermatologically validated.">
+  <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://www.alfurin.com/science.html">
+  <link rel="alternate" hreflang="en" href="https://www.alfurin.com/science.html">
+  <link rel="alternate" hreflang="es" href="https://www.alfurin.es/science.html">
+  <link rel="alternate" hreflang="nl" href="https://www.alfurin.nl/science.html">
+  <link rel="alternate" hreflang="cs" href="https://www.alfurin.cz/science.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.alfurin.com/science.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  /* ── Science page ─────────────────────────────────────────────── */
+
+  /* ── 1. Hero ─────────────────────────────────────────────────── */
+  .sc-hero {
+    background: var(--alfurin-deep, #1c4236);
+    color: #fff;
+    min-height: 92vh;
+    padding: 110px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sc-hero::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(155,182,162,0.07) 0%, transparent 65%);
+    top: -150px; right: -150px;
+    pointer-events: none;
+  }
+  .sc-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .sc-hero-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--alfurin-sage, #9bb6a2);
+    margin-bottom: 18px;
+  }
+  .sc-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.1;
+    color: #fff;
+    margin: 0 0 22px;
+  }
+  .sc-hero-p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 32px;
+    max-width: 46ch;
+  }
+  .sc-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sc-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 500;
+    color: var(--alfurin-sage, #9bb6a2);
+    border: 1px solid rgba(155,182,162,0.32);
+    border-radius: 100px;
+    padding: 5px 14px;
+    letter-spacing: 0.03em;
+  }
+
+  /* Video */
+  .sc-video-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(155,182,162,0.14);
+    box-shadow: 0 8px 48px rgba(0,0,0,0.4);
+    margin: 0 auto;
+  }
+  .sc-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .sc-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 35%, rgba(28,66,54,0.6) 100%);
+    pointer-events: none;
+  }
+
+  /* ── 2. Story ────────────────────────────────────────────────── */
+  .sc-story {
+    background: #f9f8f6;
+    padding: 96px 0;
+  }
+  .sc-section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--alfurin-deep, #1c4236);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .sc-section-label.centered { text-align: center; }
+  .sc-section-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    line-height: 1.25;
+  }
+  .sc-section-h2.centered { text-align: center; }
+  .sc-section-p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: #484848;
+    margin-bottom: 52px;
+  }
+  .sc-section-p.centered { text-align: center; margin-left: auto; margin-right: auto; max-width: 64ch; }
+
+  .sc-story-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .sc-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 36px 28px;
+    box-shadow: 0 1px 12px rgba(28,66,54,0.06);
+    transition: box-shadow 0.28s ease, transform 0.28s ease;
+  }
+  .sc-card:hover {
+    box-shadow: 0 6px 28px rgba(28,66,54,0.12);
+    transform: translateY(-3px);
+  }
+  .sc-card-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--alfurin-deep, #1c4236);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+  .sc-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+  }
+  .sc-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.87rem;
+    font-weight: 300;
+    line-height: 1.72;
+    color: #555;
+    margin: 0;
+  }
+
+  /* ── 3. Skin Compatibility ───────────────────────────────────── */
+  .sc-compat {
+    background: #f2f0ed;
+    padding: 96px 0;
+  }
+  .sc-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 44px;
+  }
+  .sc-stat {
+    background: #fff;
+    border-radius: 12px;
+    padding: 36px 20px;
+    text-align: center;
+    box-shadow: 0 1px 8px rgba(28,66,54,0.05);
+  }
+  .sc-stat-n {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--alfurin-deep, #1c4236);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .sc-stat-lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.4;
+  }
+  .sc-compat-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ── 4. Care & Research ──────────────────────────────────────── */
+  .sc-care {
+    background: #f9f8f6;
+    padding: 96px 0;
+  }
+  .sc-care-inner {
+    max-width: 680px;
+  }
+  .sc-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #777;
+    line-height: 1.7;
+    border-left: 2px solid rgba(28,66,54,0.2);
+    padding-left: 18px;
+    margin: 28px 0 38px;
+  }
+
+  /* ── Science Footer ──────────────────────────────────────────── */
+  .sc-footer {
+    background: var(--alfurin-deep, #1c4236);
+    color: rgba(255,255,255,0.75);
+    padding: 64px 0 40px;
+  }
+  .sc-foot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 28px;
+  }
+  .sc-foot-logo {
+    height: 30px;
+    width: auto;
+    margin-bottom: 10px;
+    display: block;
+    filter: brightness(10);
+    opacity: 0.88;
+  }
+  .sc-foot-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  .sc-foot-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+  }
+  .sc-foot-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+    padding-top: 4px;
+  }
+  .sc-foot-co {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.82);
+  }
+  .sc-foot-email {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--alfurin-sage, #9bb6a2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .sc-foot-email:hover { color: #fff; }
+  .sc-foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .sc-foot-legal {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.71rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.35);
+    max-width: 60ch;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .sc-foot-copy {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.71rem;
+    color: rgba(255,255,255,0.3);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 960px) {
+    .sc-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .sc-video-wrap { order: -1; max-width: 100%; }
+    .sc-story-cards { grid-template-columns: 1fr; }
+    .sc-stats { grid-template-columns: repeat(2, 1fr); }
+    .sc-foot-grid { grid-template-columns: 1fr; gap: 32px; }
+    .sc-foot-right { align-items: flex-start; }
+  }
+  @media (max-width: 580px) {
+    .sc-hero { padding: 90px 0 56px; }
+    .sc-story, .sc-compat, .sc-care { padding: 72px 0; }
+    .sc-compat-btns { flex-direction: column; }
+    .sc-foot-bottom { flex-direction: column; }
+  }
+  </style>
+</head>
+<body class="theme-alfurin">
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo/logo.svg" alt="AlsysLife">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html" class="nav-link">Company <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">About AlsysLife</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="science.html" class="nav-link active">Science</a></li>
+      <li><a href="psoriasis.html" class="nav-link">Disease Areas</a></li>
+      <li><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
+      <li class="lang-switcher">
+        <span class="lang-active">EN</span>
+        <span class="lang-sep">|</span>
+        <a href="../science.html" class="lang-switch">CH</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Section 1: Hero / Origin ──────────────────────────── -->
+<section class="sc-hero">
+  <div class="container">
+    <div class="sc-hero-grid">
+
+      <div class="sc-hero-text">
+        <div class="sc-hero-label">THE ORIGIN</div>
+        <h1>From bark to balm.</h1>
+        <p class="sc-hero-p">The heart of Alfurin is a single plant extract &#8211; drawn only from the bark of the Indian wood apple tree (Limonia acidissima). See where it comes from.</p>
+        <div class="sc-badges">
+          <span class="sc-badge">&#10003; Clinically tested</span>
+          <span class="sc-badge">&#10003; Steroid-free</span>
+          <span class="sc-badge">&#10003; Dermatologist recommended</span>
+        </div>
+      </div>
+
+      <div class="sc-video-wrap">
+        <video class="sc-video" autoplay muted loop playsinline>
+          <source src="images/videos/can_we_make_this_with_this_col.mp4" type="video/mp4">
+        </video>
+        <div class="sc-video-overlay"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 2: The Story ──────────────────────────────── -->
+<section class="sc-story">
+  <div class="container">
+    <span class="sc-section-label centered">THE STORY</span>
+    <h2 class="sc-section-h2 centered">A plant story, kept simple.</h2>
+    <p class="sc-section-p centered">Deep in tropical forests grows the Indian wood apple tree, Limonia acidissima. For Alfurin, only its bark is harvested &#8211; carefully removed and taken to the facility, where it becomes a plant extract. That extract is the active heart of this gentle care cream for skin prone to psoriasis. A good story deserves good care &#8211; here's how gentle Alfurin is on the skin.</p>
+    <div class="sc-story-cards">
+      <div class="sc-card">
+        <div class="sc-card-num">1</div>
+        <h3>The bark</h3>
+        <p>Only the bark of Limonia acidissima is harvested &#8211; the tree stays standing.</p>
+      </div>
+      <div class="sc-card">
+        <div class="sc-card-num">2</div>
+        <h3>The extract</h3>
+        <p>The bark is pressed into a plant extract &#8211; the active heart of the formula.</p>
+      </div>
+      <div class="sc-card">
+        <div class="sc-card-num">3</div>
+        <h3>The cream</h3>
+        <p>The extract is blended into a gentle, steroid-free care cream.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 3: Skin Compatibility ─────────────────────── -->
+<section class="sc-compat">
+  <div class="container">
+    <span class="sc-section-label centered">SKIN COMPATIBILITY</span>
+    <h2 class="sc-section-h2 centered">Gentle on skin &#8212; independently checked.</h2>
+    <p class="sc-section-p centered">Alfurin's skin compatibility was assessed in an independent, dermatologist-supervised patch test on 50 volunteers, including 25 with a history of allergies. No irritation or reactions were observed, and the cream was classified in the mildest, 'non-irritating' category. Read the full patch test below.</p>
+    <div class="sc-stats">
+      <div class="sc-stat">
+        <div class="sc-stat-n">50</div>
+        <div class="sc-stat-lbl">participants tested</div>
+      </div>
+      <div class="sc-stat">
+        <div class="sc-stat-n">25</div>
+        <div class="sc-stat-lbl">with allergy history</div>
+      </div>
+      <div class="sc-stat">
+        <div class="sc-stat-n">96h</div>
+        <div class="sc-stat-lbl">observation period</div>
+      </div>
+      <div class="sc-stat">
+        <div class="sc-stat-n">0</div>
+        <div class="sc-stat-lbl">irritations / reactions</div>
+      </div>
+    </div>
+    <div class="sc-compat-btns">
+      <a href="ALFURIN_Skin_Compatibility_Report.pdf" class="btn btn-primary" target="_blank" rel="noopener">View the patch test &#8594;</a>
+      <a href="ALFURIN_Skin_Compatibility_Report.pdf" class="btn btn-outline" download>Download the full patch test &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Section 4: Care & Research ────────────────────────── -->
+<section class="sc-care">
+  <div class="container">
+    <div class="sc-care-inner">
+      <span class="sc-section-label">CARE &amp; RESEARCH</span>
+      <h2 class="sc-section-h2">Care, backed by careful work.</h2>
+      <p class="sc-section-p" style="margin-bottom:0">Alfurin is a 100% plant-based, steroid-free care cream built around a single active &#8211; the bark extract of the Indian wood apple. It's made to soothe the look and feel of dryness, flaking and redness on skin prone to psoriasis, as part of a gentle daily routine. Its skin compatibility and everyday use have been looked at under recognised research standards (Declaration of Helsinki, GCP).</p>
+      <p class="sc-disclaimer">Alfurin is a cosmetic product for the care of skin prone to psoriasis. It does not replace medical diagnosis or treatment.</p>
+      <a href="ALFURIN_Patient_Flyer_EN.pdf" class="btn btn-primary" target="_blank" rel="noopener">Download the patient flyer &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="sc-footer">
+  <div class="container">
+    <div class="sc-foot-grid">
+      <div>
+        <img src="images/logo/logo.svg" alt="ALFURIN" class="sc-foot-logo">
+        <div class="sc-foot-name">ALFURIN</div>
+        <div class="sc-foot-tagline">Plant-based care for skin prone to psoriasis</div>
+      </div>
+      <div class="sc-foot-right">
+        <div class="sc-foot-co">ALSYSLIFE AG &#183; Basel, Switzerland</div>
+        <a href="mailto:phanisripada@alsyslife.com" class="sc-foot-email">phanisripada@alsyslife.com</a>
+      </div>
+    </div>
+    <div class="footer-languages">
+      <span class="footer-lang-label">Language</span>
+      <a href="https://www.alfurin.com/science.html" class="footer-lang-link active">English</a>
+      <a href="https://www.alfurin.es/science.html" class="footer-lang-link">Español</a>
+      <a href="https://www.alfurin.nl/science.html" class="footer-lang-link">Nederlands</a>
+      <a href="https://www.alfurin.cz/science.html" class="footer-lang-link">Čeština</a>
+    </div>
+    <div class="sc-foot-bottom">
+      <p class="sc-foot-legal">Alfurin is a cosmetic product as defined by EU Regulation (EC) No.&#160;1223/2009 and is not a medicinal product.</p>
+      <p class="sc-foot-copy">&#169; 2025 AlsysLife AG. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>window.__DISCLAIMER__={"title":"Beware of Counterfeit Sellers","body":"Alfurin is sold exclusively on this website. Third-party sites copying our name and packaging are not authorized and may sell unsafe imitations.","chips":["Official Source","No Resellers","Avoid Imitations"],"note":"Only trust product information found on this site.","btn":"Got It","close":"Close"};</script>
+<script src="js/main.js"></script>
+</body>
+</html>

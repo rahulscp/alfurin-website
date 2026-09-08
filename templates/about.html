@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{meta.about.title}}</title>
+  <meta name="description" content="{{meta.about.desc}}">
+  <link rel="icon" href="{{ASSET_PREFIX}}images/logo/logo.svg" type="image/svg+xml">
+{{HREFLANG}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ASSET_PREFIX}}css/style.css">
+</head>
+<body{{BODY_CLASS_ATTR}}>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">{{nav.home}}</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html" class="nav-link active">{{nav.company}} <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">{{nav.about}}</a></li>
+          <li><a href="contact.html">{{nav.contact}}</a></li>
+        </ul>
+      </li>
+      <li><a href="science.html" class="nav-link">{{nav.science}}</a></li>
+      <li><a href="psoriasis.html" class="nav-link">{{nav.disease}}</a></li>
+      <li><a href="contact.html" class="btn btn-primary">{{nav.cta}}</a></li>
+{{LANG_SWITCHER}}
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero page-hero-img">
+  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/aboutus.jpg')"></div>
+  <div class="phimg-overlay"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">{{breadcrumb.home}}</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="current">{{about.hero.breadcrumb}}</span>
+      </div>
+      <div class="section-label">{{about.hero.label}}</div>
+      <h1>{{about.hero.h1.pre}} <span class="gradient-text">{{about.hero.h1.accent}}</span></h1>
+      <p>{{about.hero.p}}</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Company Overview -->
+<section class="section about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="section-label">{{about.overview.label}}</div>
+        <h2 class="section-title">{{about.overview.h2}}</h2>
+        <p class="section-text">{{about.overview.p1}}</p>
+        <p class="section-text">{{about.overview.p2}}</p>
+        <p class="section-text">{{about.overview.p3}}</p>
+      </div>
+      <div class="about-visual reveal-right">
+        <div class="visual-card">
+          <div class="visual-ring"></div>
+          <div class="visual-ring-2"></div>
+          <div class="visual-inner">
+            <div class="visual-stat">
+              <span class="visual-number">20+</span>
+              <span class="visual-label">{{about.visual.label}}</span>
+            </div>
+            <div class="visual-divider"></div>
+            <div class="visual-locations">
+              <div class="location-item">
+                <span class="location-flag">🇨🇭</span>
+                <span>{{about.loc.ch}}</span>
+              </div>
+              <div class="location-item">
+                <span class="location-flag">🇺🇸</span>
+                <span>{{about.loc.us}}</span>
+              </div>
+              <div class="location-item">
+                <span class="location-flag">🇮🇳</span>
+                <span>{{about.loc.in}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Mission / Vision / Values -->
+<section class="section" style="background:var(--bg-200)">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{about.mvv.label}}</div>
+      <h2 class="section-title">{{about.mvv.h2}}</h2>
+      <p class="section-subtitle">{{about.mvv.sub}}</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card reveal-up" style="--delay:0.08s">
+        <div class="mc-label">{{about.mission.label}}</div>
+        <h3>{{about.mission.h3}}</h3>
+        <p>{{about.mission.p}}</p>
+        <ul style="margin-top:16px">
+          <li>{{about.mission.li1}}</li>
+          <li>{{about.mission.li2}}</li>
+          <li>{{about.mission.li3}}</li>
+          <li>{{about.mission.li4}}</li>
+          <li>{{about.mission.li5}}</li>
+        </ul>
+      </div>
+      <div class="mission-card reveal-up" style="--delay:0.16s">
+        <div class="mc-label">{{about.vision.label}}</div>
+        <h3>{{about.vision.h3}}</h3>
+        <p>{{about.vision.p1}}</p>
+        <p style="margin-top:16px">{{about.vision.p2}}</p>
+      </div>
+      <div class="mission-card full reveal-up" style="--delay:0.24s">
+        <div class="mc-label">{{about.values.label}}</div>
+        <h3>{{about.values.h3}}</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px">
+          <div>
+            <h4 style="font-size:1rem;margin-bottom:8px;color:var(--gold-200)">{{about.values.v1.title}}</h4>
+            <p>{{about.values.v1.p}}</p>
+          </div>
+          <div>
+            <h4 style="font-size:1rem;margin-bottom:8px;color:var(--gold-200)">{{about.values.v2.title}}</h4>
+            <p>{{about.values.v2.p}}</p>
+          </div>
+          <div>
+            <h4 style="font-size:1rem;margin-bottom:8px;color:var(--gold-200)">{{about.values.v3.title}}</h4>
+            <p>{{about.values.v3.p}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Why AlsysLife -->
+<section class="section" style="background:var(--bg-100)">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-label">{{about.why.label}}</div>
+      <h2 class="section-title">{{about.why.h2}}</h2>
+      <p class="section-subtitle">{{about.why.sub}}</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal-up" style="--delay:0.06s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <h3>{{about.why1.h3}}</h3>
+        <p>{{about.why1.p}}</p>
+      </div>
+      <div class="why-card reveal-up" style="--delay:0.12s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+        </div>
+        <h3>{{about.why2.h3}}</h3>
+        <p>{{about.why2.p}}</p>
+      </div>
+      <div class="why-card reveal-up" style="--delay:0.18s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>{{about.why3.h3}}</h3>
+        <p>{{about.why3.p}}</p>
+      </div>
+      <div class="why-card reveal-up" style="--delay:0.24s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>{{about.why4.h3}}</h3>
+        <p>{{about.why4.p}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{about.cta.h2}}</h2>
+    <p>{{about.cta.p}}</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn btn-primary">{{about.cta.btn1}}</a>
+      <a href="research.html" class="btn btn-outline">{{about.cta.btn2}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife" class="footer-logo">
+        <p class="footer-desc">{{footer.desc}}</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="social-link" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.company}}</div>
+        <ul class="footer-links">
+          <li><a href="about.html">{{footer.link.about}}</a></li>
+          <li><a href="research.html">{{footer.link.rd}}</a></li>
+          <li><a href="pipeline.html">{{footer.link.pipeline}}</a></li>
+          <li><a href="clinical-trials.html">{{footer.link.clinical}}</a></li>
+          <li><a href="psoriasis.html">{{footer.link.disease}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.quicklinks}}</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">{{footer.link.contact}}</a></li>
+          <li><a href="contact.html">{{footer.link.partnering}}</a></li>
+          <li><a href="contact.html">{{footer.link.investor}}</a></li>
+          <li><a href="contact.html">{{footer.link.careers}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.offices}}</div>
+        <div class="footer-office"><div class="fo-country">🇨🇭 Switzerland</div><div class="fo-addr">{{footer.addr.ch}}</div></div>
+        <div class="footer-office"><div class="fo-country">🇺🇸 United States</div><div class="fo-addr">{{footer.addr.us}}</div></div>
+        <div class="footer-office"><div class="fo-country">🇮🇳 India</div><div class="fo-addr">{{footer.addr.in}}</div></div>
+      </div>
+    </div>
+{{FOOTER_LANGUAGES}}
+    <div class="footer-bottom">
+      <span class="footer-copy">{{footer.copy}}</span>
+      <div class="footer-legal"><a href="#">{{footer.legal.privacy}}</a><a href="#">{{footer.legal.terms}}</a></div>
+    </div>
+  </div>
+</footer>
+
+{{DISCLAIMER_DATA}}
+<script src="{{ASSET_PREFIX}}js/main.js"></script>
+</body>
+</html>

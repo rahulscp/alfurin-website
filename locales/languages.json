@@ -1,0 +1,9 @@
+{
+  "en": { "label": "English", "code": "EN", "domain": "https://www.alfurin.com", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
+  "de": { "label": "Deutsch", "code": "DE", "domain": "", "flag": "🇩🇪" },
+  "es": { "label": "Español", "code": "ES", "domain": "https://www.alfurin.es", "flag": "🇪🇸" },
+  "nl": { "label": "Nederlands", "code": "NL", "domain": "https://www.alfurin.nl", "flag": "🇳🇱" },
+  "cs": { "label": "Čeština", "code": "CS", "domain": "https://www.alfurin.cz", "flag": "🇨🇿" },
+  "ch": { "label": "Deutsch (Schweiz)", "code": "CH", "domain": "", "locale": "de", "flag": "🇨🇭" },
+  "it": { "label": "Italiano", "code": "IT", "domain": "", "flag": "🇮🇹" }
+}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{meta.research.title}}</title>
+  <meta name="description" content="{{meta.research.desc}}">
+  <link rel="icon" href="{{ASSET_PREFIX}}images/logo/logo.svg" type="image/svg+xml">
+{{HREFLANG}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ASSET_PREFIX}}css/style.css">
+</head>
+<body{{BODY_CLASS_ATTR}}>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">{{nav.home}}</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html" class="nav-link">{{nav.company}} <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">{{nav.about}}</a></li>
+          <li><a href="contact.html">{{nav.contact}}</a></li>
+        </ul>
+      </li>
+      <li><a href="science.html" class="nav-link active">{{nav.science}}</a></li>
+      <li><a href="psoriasis.html" class="nav-link">{{nav.disease}}</a></li>
+      <li><a href="contact.html" class="btn btn-primary">{{nav.cta}}</a></li>
+{{LANG_SWITCHER}}
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero page-hero-img">
+  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/research.jpg')"></div>
+  <div class="phimg-overlay"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">{{breadcrumb.home}}</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="current">{{research.hero.breadcrumb}}</span>
+      </div>
+      <div class="section-label">{{research.hero.label}}</div>
+      <h1>{{research.hero.h1.pre}} <span class="gradient-text">{{research.hero.h1.accent}}</span></h1>
+      <p>{{research.hero.p}}</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- R&D Overview -->
+<section class="section about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="section-label">{{research.overview.label}}</div>
+        <h2 class="section-title">{{research.overview.h2}}</h2>
+        <p class="section-text">{{research.overview.p1}}</p>
+        <p class="section-text">{{research.overview.p2}}</p>
+        <p class="section-text">{{research.overview.p3}}</p>
+        <a href="pipeline.html" class="btn btn-primary mt-4">{{research.overview.btn}}</a>
+      </div>
+      <div class="about-visual reveal-right">
+        <div class="visual-card">
+          <div class="visual-ring"></div>
+          <div class="visual-ring-2"></div>
+          <div class="visual-inner">
+            <div class="visual-stat">
+              <span class="visual-number">565</span>
+              <span class="visual-label">{{research.visual.label}}</span>
+            </div>
+            <div class="visual-divider"></div>
+            <div class="visual-locations">
+              <div class="location-item">
+                <span class="location-flag">🧪</span>
+                <span>LC-MS/MS &amp; GC-MS/MS analytics</span>
+              </div>
+              <div class="location-item">
+                <span class="location-flag">🔬</span>
+                <span>EU-compliant residue standards</span>
+              </div>
+              <div class="location-item">
+                <span class="location-flag">📊</span>
+                <span>Translational medicine platform</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Scientific Capabilities -->
+<section class="section" style="background:var(--bg-200)">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{research.caps.label}}</div>
+      <h2 class="section-title">{{research.caps.h2}}</h2>
+      <p class="section-subtitle">{{research.caps.sub}}</p>
+    </div>
+    <div class="rd-capabilities-list">
+      <div class="rd-cap-item reveal-up" style="--delay:0.06s">{{research.cap.1}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.1s">{{research.cap.2}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.14s">{{research.cap.3}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.18s">{{research.cap.4}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.22s">{{research.cap.5}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.26s">{{research.cap.6}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.3s">{{research.cap.7}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.34s">{{research.cap.8}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.38s">{{research.cap.9}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.42s">{{research.cap.10}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.46s">{{research.cap.11}}</div>
+      <div class="rd-cap-item reveal-up" style="--delay:0.5s">{{research.cap.12}}</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Innovation Pipeline Areas -->
+<section class="section" style="background:var(--bg-100)">
+  <div class="container">
+    <div class="rd-inner">
+      <div class="rd-grid">
+        <div class="reveal-left">
+          <div class="section-label">{{research.focus.label}}</div>
+          <h2 class="section-title">{{research.focus.h2}}</h2>
+          <p class="section-text">{{research.focus.p1}}</p>
+          <p class="section-text">{{research.focus.p2}}</p>
+          <a href="pipeline.html" class="btn btn-ghost mt-4">{{research.focus.btn}}</a>
+        </div>
+        <div class="reveal-right">
+          <p class="section-text" style="margin-bottom:24px">{{research.focus.intro}}</p>
+          <div class="focus-pills">
+            <span class="focus-pill">{{research.pill.1}}</span>
+            <span class="focus-pill">{{research.pill.2}}</span>
+            <span class="focus-pill">{{research.pill.3}}</span>
+            <span class="focus-pill">{{research.pill.4}}</span>
+            <span class="focus-pill">{{research.pill.5}}</span>
+            <span class="focus-pill">{{research.pill.6}}</span>
+            <span class="focus-pill">{{research.pill.7}}</span>
+            <span class="focus-pill">{{research.pill.8}}</span>
+            <span class="focus-pill">{{research.pill.9}}</span>
+            <span class="focus-pill">{{research.pill.10}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Target Proteins -->
+<section class="section" style="background:var(--bg-200)">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{research.targets.label}}</div>
+      <h2 class="section-title">{{research.targets.h2}}</h2>
+      <p class="section-subtitle">{{research.targets.sub}}</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal-up" style="--delay:0.06s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+        </div>
+        <h3>{{research.t1.h3}}</h3>
+        <p>{{research.t1.p}}</p>
+      </div>
+      <div class="why-card reveal-up" style="--delay:0.12s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22V12M12 12L4 7M12 12l8-5M4 7l8 5 8-5M4 7V17l8 5 8-5V7"/></svg>
+        </div>
+        <h3>{{research.t2.h3}}</h3>
+        <p>{{research.t2.p}}</p>
+      </div>
+      <div class="why-card reveal-up" style="--delay:0.18s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2z"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>{{research.t3.h3}}</h3>
+        <p>{{research.t3.p}}</p>
+      </div>
+      <div class="why-card reveal-up" style="--delay:0.24s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg>
+        </div>
+        <h3>{{research.t4.h3}}</h3>
+        <p>{{research.t4.p}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{research.cta.h2}}</h2>
+    <p>{{research.cta.p}}</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn btn-primary">{{research.cta.btn1}}</a>
+      <a href="pipeline.html" class="btn btn-outline">{{research.cta.btn2}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife" class="footer-logo">
+        <p class="footer-desc">{{footer.desc}}</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="social-link" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.company}}</div>
+        <ul class="footer-links">
+          <li><a href="about.html">{{footer.link.about}}</a></li>
+          <li><a href="research.html">{{footer.link.rd}}</a></li>
+          <li><a href="pipeline.html">{{footer.link.pipeline}}</a></li>
+          <li><a href="clinical-trials.html">{{footer.link.clinical}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.quicklinks}}</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">{{footer.link.contact}}</a></li>
+          <li><a href="contact.html">{{footer.link.partnering}}</a></li>
+          <li><a href="psoriasis.html">{{footer.link.disease}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.offices}}</div>
+        <div class="footer-office"><div class="fo-country">🇨🇭 Switzerland</div><div class="fo-addr">{{footer.addr.ch}}</div></div>
+        <div class="footer-office"><div class="fo-country">🇺🇸 United States</div><div class="fo-addr">{{footer.addr.us}}</div></div>
+        <div class="footer-office"><div class="fo-country">🇮🇳 India</div><div class="fo-addr">{{footer.addr.in}}</div></div>
+      </div>
+    </div>
+{{FOOTER_LANGUAGES}}
+    <div class="footer-bottom">
+      <span class="footer-copy">{{footer.copy}}</span>
+      <div class="footer-legal"><a href="#">{{footer.legal.privacy}}</a><a href="#">{{footer.legal.terms}}</a></div>
+    </div>
+  </div>
+</footer>
+
+{{DISCLAIMER_DATA}}
+<script src="{{ASSET_PREFIX}}js/main.js"></script>
+</body>
+</html>

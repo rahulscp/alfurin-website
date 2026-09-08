@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{meta.home.title}}</title>
+  <meta name="description" content="{{meta.home.desc}}">
+  <link rel="icon" href="{{ASSET_PREFIX}}images/logo/logo.svg" type="image/svg+xml">
+{{HREFLANG}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ASSET_PREFIX}}css/style.css">
+</head>
+<body{{BODY_CLASS_ATTR}}>
+
+<!-- ── Navigation ─────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link active">{{nav.home}}</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html" class="nav-link">{{nav.company}} <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">{{nav.about}}</a></li>
+          <li><a href="contact.html">{{nav.contact}}</a></li>
+        </ul>
+      </li>
+      <li><a href="science.html" class="nav-link">{{nav.science}}</a></li>
+      <li><a href="psoriasis.html" class="nav-link">{{nav.disease}}</a></li>
+      <li><a href="contact.html" class="btn btn-primary">{{nav.cta}}</a></li>
+{{LANG_SWITCHER}}
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────── -->
+<section class="prod-hero" id="hero">
+  <div class="prod-hero-bg" style="background-image:url('{{ASSET_PREFIX}}images/KRK06817.jpg')"></div>
+  <div class="prod-hero-overlay"></div>
+  <div class="prod-hero-bottom"></div>
+  <div class="prod-hero-content">
+    <div class="prod-eyebrow">{{home.hero.eyebrow}}</div>
+    <h1 class="prod-headline">{{home.hero.h1}}</h1>
+    <p class="prod-subtext">{{home.hero.sub}}</p>
+    <div class="prod-hero-ctas">
+      <a href="#products" class="btn btn-primary">{{home.hero.btn1}}</a>
+      <a href="#science" class="btn btn-outline-white">{{home.hero.btn2}}</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>{{home.hero.scroll}}</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── Trust Strip ──────────────────────────────── -->
+<div class="trust-strip">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      {{home.trust.1}}
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      {{home.trust.2}}
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12c0-2.76 1.12-5.26 2.93-7.07"/><path d="M8 12l2 2 4-4"/></svg>
+      {{home.trust.3}}
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2l1.5 1.5"/><path d="M6.5 5.5C9 8 11 10 11 13a4 4 0 0 1-8 0c0-3 2-5 2.5-7.5z"/><path d="M13 2l2 5h4l-3 3 1 5-4-2.5L9 15l1-5-3-3h4z"/></svg>
+      {{home.trust.4}}
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+      {{home.trust.5}}
+    </div>
+  </div>
+</div>
+
+<!-- ── Product Line ─────────────────────────────── -->
+<section class="section prod-section" id="products">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{home.prod.label}}</div>
+      <h2 class="section-title">{{home.prod.h2}}</h2>
+      <p class="section-subtitle">{{home.prod.sub}}</p>
+    </div>
+    <div class="prod-cards-grid">
+
+      <div class="prod-card reveal-left">
+        <div class="prod-card-image">
+          <img src="{{ASSET_PREFIX}}images/LOTION.jpg" alt="{{home.lotion.alt}}" style="object-position:left center">
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-tag">{{home.lotion.tag}}</div>
+          <h3>{{home.lotion.h3}}</h3>
+          <p class="prod-card-subtitle">{{home.lotion.sub}}</p>
+          <ul class="prod-card-features">
+            <li>{{home.lotion.f1}}</li>
+            <li>{{home.lotion.f2}}</li>
+            <li>{{home.lotion.f3}}</li>
+            <li>{{home.lotion.f4}}</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary">{{home.lotion.btn}}</a>
+        </div>
+      </div>
+
+      <div class="prod-card reveal-right">
+        <div class="prod-card-image">
+          <img src="{{ASSET_PREFIX}}images/CREAM.jpg" alt="{{home.cream.alt}}" style="object-position:left center">
+        </div>
+        <div class="prod-card-body">
+          <div class="prod-card-tag">{{home.cream.tag}}</div>
+          <h3>{{home.cream.h3}}</h3>
+          <p class="prod-card-subtitle">{{home.cream.sub}}</p>
+          <ul class="prod-card-features">
+            <li>{{home.cream.f1}}</li>
+            <li>{{home.cream.f2}}</li>
+            <li>{{home.cream.f3}}</li>
+            <li>{{home.cream.f4}}</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary">{{home.cream.btn}}</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Story / Usage ────────────────────────────── -->
+<section class="prod-story" id="howto">
+  <div class="prod-story-grid">
+    <div class="prod-story-image reveal-left">
+      <img src="{{ASSET_PREFIX}}images/KRK06947.jpg" alt="{{home.story.alt}}">
+    </div>
+    <div class="prod-story-text reveal-right">
+      <div class="section-label">{{home.story.label}}</div>
+      <h2 class="section-title">{{home.story.h2}}</h2>
+      <p class="section-text">{{home.story.p}}</p>
+      <div class="usage-steps">
+        <div class="usage-step">
+          <span class="us-num">1</span>
+          <div>
+            <strong>{{home.step1.title}}</strong>
+            <p>{{home.step1.p}}</p>
+          </div>
+        </div>
+        <div class="usage-step">
+          <span class="us-num">2</span>
+          <div>
+            <strong>{{home.step2.title}}</strong>
+            <p>{{home.step2.p}}</p>
+          </div>
+        </div>
+        <div class="usage-step">
+          <span class="us-num">3</span>
+          <div>
+            <strong>{{home.step3.title}}</strong>
+            <p>{{home.step3.p}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Photo Gallery ───────────────────────────── -->
+<div class="prod-gallery">
+  <div class="prod-gallery-grid">
+    <div class="prod-gallery-item">
+      <img src="{{ASSET_PREFIX}}images/KRK06846.jpg" alt="{{home.gallery.alt1}}">
+      <span class="pgi-label">{{home.gallery.label1}}</span>
+    </div>
+    <div class="prod-gallery-item">
+      <img src="{{ASSET_PREFIX}}images/KRK06886.jpg" alt="{{home.gallery.alt2}}">
+      <span class="pgi-label">{{home.gallery.label2}}</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Science Backing ─────────────────────────── -->
+<!--
+<section class="section prod-science" id="science">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{home.sci.label}}</div>
+      <h2 class="section-title">{{home.sci.h2}}</h2>
+      <p class="section-subtitle">{{home.sci.sub}}</p>
+    </div>
+    <div class="prod-science-grid">
+      <div class="sci-card reveal-up" style="--delay:0.06s">
+        <div class="sci-num">72%</div>
+        <div class="sci-unit">{{home.sci1.unit}}</div>
+        <h4>{{home.sci1.h4}}</h4>
+        <p>{{home.sci1.p}}</p>
+      </div>
+      <div class="sci-card reveal-up" style="--delay:0.12s">
+        <div class="sci-num">S100</div>
+        <div class="sci-unit">{{home.sci2.unit}}</div>
+        <h4>{{home.sci2.h4}}</h4>
+        <p>{{home.sci2.p}}</p>
+      </div>
+      <div class="sci-card reveal-up" style="--delay:0.18s">
+        <div class="sci-num">Ph.III</div>
+        <div class="sci-unit">{{home.sci3.unit}}</div>
+        <h4>{{home.sci3.h4}}</h4>
+        <p>{{home.sci3.p}}</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="research.html" class="btn btn-outline">{{home.sci.link}}</a>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- ── CTA Banner ─────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{home.cta.h2}}</h2>
+    <p>{{home.cta.p}}</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn btn-primary">{{home.cta.btn1}}</a>
+      <a href="about.html" class="btn btn-outline">{{home.cta.btn2}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife" class="footer-logo">
+        <p class="footer-desc">{{footer.desc}}</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.95A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.5C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48 9.75,15.02" style="fill:#010710"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.company}}</div>
+        <ul class="footer-links">
+          <li><a href="about.html">{{footer.link.about}}</a></li>
+          <li><a href="research.html">{{footer.link.rd}}</a></li>
+          <li><a href="pipeline.html">{{footer.link.pipeline}}</a></li>
+          <li><a href="clinical-trials.html">{{footer.link.clinical}}</a></li>
+          <li><a href="psoriasis.html">{{footer.link.disease}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.quicklinks}}</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">{{footer.link.contact}}</a></li>
+          <li><a href="contact.html#partnering">{{footer.link.partnering}}</a></li>
+          <li><a href="contact.html#investors">{{footer.link.investor}}</a></li>
+          <li><a href="contact.html">{{footer.link.careers}}</a></li>
+          <li><a href="contact.html">{{footer.link.media}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.offices}}</div>
+        <div class="footer-office">
+          <div class="fo-country">🇨🇭 Switzerland</div>
+          <div class="fo-addr">{{footer.addr.ch}}</div>
+        </div>
+        <div class="footer-office">
+          <div class="fo-country">🇺🇸 United States</div>
+          <div class="fo-addr">{{footer.addr.us}}</div>
+        </div>
+        <div class="footer-office">
+          <div class="fo-country">🇮🇳 India</div>
+          <div class="fo-addr">{{footer.addr.in}}</div>
+        </div>
+      </div>
+    </div>
+{{FOOTER_LANGUAGES}}
+    <div class="footer-bottom">
+      <span class="footer-copy">{{footer.copy}}</span>
+      <div class="footer-legal">
+        <a href="#">{{footer.legal.privacy}}</a>
+        <a href="#">{{footer.legal.terms}}</a>
+        <a href="#">{{footer.legal.cookie}}</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{{DISCLAIMER_DATA}}
+<script src="{{ASSET_PREFIX}}js/main.js"></script>
+</body>
+</html>
