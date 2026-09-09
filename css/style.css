@@ -1286,11 +1286,17 @@ h1, h2, h3, h4 {
   margin-bottom: 28px;
   letter-spacing: -0.025em;
   max-width: 680px;
+  /* keeps the headline (incl. the sage italic) legible where it wraps over
+     the lighter part of the hero photo on narrow screens */
+  text-shadow: 0 1px 12px rgba(4, 20, 16, 0.45);
 }
 
 .prod-headline em {
   font-style: italic;
   color: var(--alfurin-sage);
+  /* the sage tone is pale — give it a firmer shadow than the white words so
+     it holds up over the bright product photo on small screens */
+  text-shadow: 0 1px 14px rgba(4, 20, 16, 0.6);
 }
 
 .prod-subtext {
@@ -1299,6 +1305,7 @@ h1, h2, h3, h4 {
   line-height: 1.55;
   margin-bottom: 44px;
   max-width: 500px;
+  text-shadow: 0 1px 10px rgba(4, 20, 16, 0.4);
 }
 
 .prod-subtext br+br {
@@ -3194,6 +3201,26 @@ h1, h2, h3, h4 {
 
   .prod-headline {
     font-size: 3rem;
+  }
+
+  /* the desktop 105deg wash clears out by ~50% width; on a narrow screen the
+     wrapped headline runs past it onto the bright photo — hold the diagonal
+     darker for longer and add a vertical darkening from the bottom so the
+     whole text block stays readable */
+  .prod-hero-overlay {
+    background:
+      linear-gradient(105deg, #1c4236 0%, #1c4236 42%, rgba(0, 0, 0, 0.35) 68%, rgb(255 255 255 / 0%) 100%),
+      linear-gradient(0deg, rgba(4, 28, 32, 0.62) 0%, rgba(4, 28, 32, 0.2) 50%, transparent 72%);
+  }
+
+  /* roomier touch targets for the stacked footer link lists */
+  .footer-links {
+    gap: 4px;
+  }
+
+  .footer-links a {
+    display: inline-block;
+    padding: 7px 0;
   }
 
   .prod-cards-grid {
