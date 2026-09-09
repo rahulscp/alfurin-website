@@ -3151,12 +3151,9 @@ h1, h2, h3, h4 {
   }
 
   .nav-menu {
-    display: none;
+    display: flex;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(9, 36, 45, 0.99);
     flex-direction: column;
     justify-content: center;
@@ -3165,10 +3162,56 @@ h1, h2, h3, h4 {
     z-index: 1002;
     overflow-y: auto;
     padding: 90px 24px 48px;
+    visibility: hidden;
   }
 
   .nav-menu.open {
-    display: flex;
+    visibility: visible;
+  }
+
+  /* Keep the EN | DE toggle in the top bar, not buried in the menu. While the
+     menu is closed it floats just left of the hamburger; when the menu opens
+     it drops back into the list. `visibility:visible` re-shows it past the
+     hidden parent (display:none could not). */
+  .nav-menu .lang-switcher {
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    right: 66px;
+    width: auto;
+    margin: 0;
+    padding: 18px 0;
+    background: transparent;
+    font-size: 0.62rem;
+    z-index: 1003;
+  }
+
+  .navbar.scrolled .nav-menu .lang-switcher {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+
+  .navbar.scrolled .nav-menu .lang-active { color: rgba(28, 66, 54, 0.42); }
+  .navbar.scrolled .nav-menu .lang-sep    { color: rgba(28, 66, 54, 0.28); }
+  .navbar.scrolled .nav-menu .lang-switch {
+    color: var(--text-100);
+    border-color: rgba(28, 66, 54, 0.3);
+  }
+
+  /* menu open: switcher rejoins the list as a normal item */
+  .nav-menu.open .lang-switcher {
+    position: static;
+    width: 100%;
+    justify-content: center;
+    padding: 8px 0;
+    font-size: 0.68rem;
+    background: #563e29;
+  }
+  .nav-menu.open .lang-active { color: rgba(255, 255, 255, 0.35); }
+  .nav-menu.open .lang-sep    { color: rgba(255, 255, 255, 0.2); }
+  .nav-menu.open .lang-switch {
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.22);
   }
 
   .nav-menu>li {
@@ -3231,6 +3274,13 @@ h1, h2, h3, h4 {
     backdrop-filter: none;
     text-align: center;
     min-width: unset;
+  }
+
+  /* the closed menu is only visibility:hidden (so the pinned lang toggle can
+     stay visible) — the dropdown sets its own visibility:visible, so re-hide
+     it until the menu is actually open */
+  .nav-menu:not(.open) .dropdown-menu {
+    visibility: hidden;
   }
 
   .dropdown-menu li a {
