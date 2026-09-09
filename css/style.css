@@ -1892,6 +1892,82 @@ h1, h2, h3, h4 {
   border-left: 10px solid var(--gold-200);
 }
 
+/* ── Testimonials ──────────────────────────────── */
+.testimonials {
+  background: var(--bg-100);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 56px;
+}
+
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background: var(--bg-100);
+  border: 1px solid var(--border-100);
+  border-radius: 16px;
+  padding: 40px 32px 32px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--tr-base), box-shadow var(--tr-base), border-color var(--tr-base);
+}
+
+.testimonial-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* oversized opening quote mark, same teal accent as the section labels */
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  font-family: var(--font-heading);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--border-200);
+  pointer-events: none;
+}
+
+.testimonial-card blockquote {
+  margin: 0;
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-200);
+}
+
+.testimonial-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-100);
+}
+
+.tst-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-100);
+}
+
+.tst-role {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-400);
+}
+
 /* ── CTA Banner — Teal ─────────────────────────── */
 .cta-banner {
   padding: 110px 0;
@@ -3224,6 +3300,10 @@ h1, h2, h3, h4 {
   }
 
   .prod-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-grid {
     grid-template-columns: 1fr;
   }
 
