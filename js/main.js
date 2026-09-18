@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initForm();
   initAnchors();
-  initDisclaimer();
+  // initDisclaimer(); // counterfeit-warning popup disabled per request — logic kept, just not triggered
 
   if (document.getElementById('heroCanvas')) {
     new MoleculeNetwork('heroCanvas');
