@@ -1220,8 +1220,7 @@ h1, h2, h3, h4 {
 .prod-hero-bg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: 50%;
   background-position: right 80%;
   transform: scale(1.04);
   animation: heroZoom 8s ease forwards;
@@ -3327,6 +3326,15 @@ h1, h2, h3, h4 {
 
   .prod-headline {
     font-size: 3rem;
+  }
+
+  /* the desktop background-size:50% tiles the photo on a narrow screen (the
+     container is nowhere near twice the image's natural width there) —
+     cover + no-repeat only below this breakpoint; desktop keeps its original
+     crop/positioning untouched */
+  .prod-hero-bg {
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   /* the desktop 105deg wash clears out by ~50% width; on a narrow screen the
