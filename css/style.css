@@ -2356,6 +2356,15 @@ h1, h2, h3, h4 {
   grid-column: 1 / -1;
 }
 
+/* Core Values columns — was an inline style with no mobile fallback, which
+   stretched the shared grid track and pushed every card past the screen edge */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+
 .mc-label {
   font-family: var(--font-label);
   font-size: 0.63rem;
@@ -3395,8 +3404,20 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* minmax(0,1fr), not 1fr: a bare 1fr can't shrink below its content's
+     min-content width, so one wide child stretches the whole track */
   .focus-grid, .why-grid, .mission-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* the "Discover ALFURIN" scroll cue sits on top of the hero buttons once
+     the hero content wraps on a phone */
+  .hero-scroll {
+    display: none;
   }
 
   .symptoms-grid, .types-grid, .treatment-list, .trials-grid {
@@ -3810,6 +3831,21 @@ body.theme-alfurin .cem-address {
 body.theme-alfurin .section-label::before,
 body.theme-alfurin .sym-dot {
   background: var(--alfurin-deep);
+}
+
+/* the themed dark-green label/breadcrumb is meant for light sections; inside a
+   photo hero (contact, psoriasis) it vanished into the picture — use the same
+   light treatment the un-themed page heroes get */
+body.theme-alfurin .page-hero-img .section-label {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.theme-alfurin .page-hero-img .section-label::before {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+body.theme-alfurin .page-hero-img .breadcrumb .current {
+  color: rgba(186, 242, 249, 0.9);
 }
 
 body.theme-alfurin .cem-address:hover {
