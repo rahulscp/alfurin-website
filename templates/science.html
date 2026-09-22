@@ -334,11 +334,14 @@
 
   /* ── Responsive ──────────────────────────────────────────────── */
   @media (max-width: 960px) {
-    .sc-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .sc-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
     .sc-video-wrap { order: -1; max-width: 100%; }
-    .sc-story-cards { grid-template-columns: 1fr; }
-    .sc-stats { grid-template-columns: repeat(2, 1fr); }
-    .sc-foot-grid { grid-template-columns: 1fr; gap: 32px; }
+    .sc-story-cards { grid-template-columns: minmax(0, 1fr); }
+    /* minmax(0,1fr): longer translated labels (e.g. German "mit Allergie-
+       Vorgeschichte") can't shrink below their min-content in a bare 1fr
+       track and were stretching the cell past the screen at narrow widths */
+    .sc-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sc-foot-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
     .sc-foot-right { align-items: flex-start; }
   }
   @media (max-width: 580px) {
@@ -346,6 +349,14 @@
     .sc-story, .sc-compat, .sc-care { padding: 72px 0; }
     .sc-compat-btns { flex-direction: column; }
     .sc-foot-bottom { flex-direction: column; }
+    /* neither had a width cap tied to the container, so a flex item in a
+       column layout sizes to its own content — .sc-foot-copy's nowrap and
+       .sc-foot-legal's max-width:60ch both let longer translations (e.g.
+       Spanish) push past the screen edge */
+    .sc-foot-legal, .sc-foot-copy {
+      max-width: 100%;
+      white-space: normal;
+    }
   }
   </style>
 </head>

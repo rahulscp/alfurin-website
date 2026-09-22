@@ -1975,6 +1975,8 @@ h1, h2, h3, h4 {
   color: var(--text-100);
   overflow-wrap: anywhere;
   transition: color var(--tr-fast);
+  display: inline-block;
+  padding: 3px 0;
 }
 
 .wtb-contact a:hover {
@@ -3206,8 +3208,11 @@ h1, h2, h3, h4 {
 
 /* ── Responsive ────────────────────────────────── */
 @media (max-width: 1080px) {
+  /* minmax(0,1fr), not bare 1fr: a wide child (e.g. treatment-list's grid)
+     can't shrink below its own min-content, so it stretches this shared
+     single-column track past the viewport on every row that shares it */
   .about-grid, .rd-grid, .clinical-grid, .contact-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 52px;
   }
 
@@ -3542,6 +3547,14 @@ h1, h2, h3, h4 {
     text-align: center;
   }
 
+  /* three legal links never wrapped (no flex-wrap) — longer translated
+     labels (German especially) forced this row wider than the screen */
+  .footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 6px;
+  }
+
   .hero-cta-grid {
     flex-direction: column;
     max-width: 280px;
@@ -3581,6 +3594,14 @@ h1, h2, h3, h4 {
 @media (max-width: 520px) {
   .symptoms-grid, .types-grid, .treatment-list, .trials-grid, .clinical-cards {
     grid-template-columns: 1fr;
+  }
+
+  /* .btn forces white-space:nowrap so short labels never break mid-word;
+     the science page's longer CTAs ("Download the full patch test") have
+     no room to stay on one line at this width and were overflowing it */
+  .btn {
+    white-space: normal;
+    text-align: center;
   }
 
   .hero-headline {
