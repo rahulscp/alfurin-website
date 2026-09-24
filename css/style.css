@@ -3433,17 +3433,40 @@ h1, h2, h3, h4 {
     font-size: 3rem;
   }
 
-  /* the desktop background-size:50% tiles the photo on a narrow screen (the
-     container is nowhere near twice the image's natural width there) —
-     cover + no-repeat only below this breakpoint; desktop keeps its original
-     crop/positioning untouched */
+  /* home hero: keep the whole product photo (labels and all) like the desktop
+     layout, but a portrait photo can't sit beside the text on a phone — so the
+     text comes first on the brand-green and the photo follows it at its own
+     2:3 shape, its top edge faded into the green and tucked ~38vw up under
+     the last text lines (that strip of the picture is empty stone) */
+  .prod-hero {
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 62px;
+    background: #1c4236;
+  }
+  .prod-hero-content {
+    order: 1;
+    padding: 28px 24px 0;
+  }
   .prod-hero-bg {
-    background-size: cover;
+    order: 2;
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    margin-top: -38vw;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    /* desktop anchors the photo hard right; on a phone that window only ever
-       caught a dim slice of one tube sitting under the headline — 72% slides it
-       right so the tube (and the box behind it) read clearly */
-    background-position: 72% 80%;
+    background-position: center;
+    transform: none;
+    animation: none;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 24%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 24%);
   }
 
   /* page-hero photos run from y=0, so the fixed 62px navbar sits on top of the
@@ -3480,10 +3503,9 @@ h1, h2, h3, h4 {
      wrapped headline runs past it onto the bright photo — hold the diagonal
      darker for longer and add a vertical darkening from the bottom so the
      whole text block stays readable */
-  .prod-hero-overlay {
-    background:
-      linear-gradient(105deg, #1c4236 0%, #1c4236 42%, rgba(0, 0, 0, 0.35) 68%, rgb(255 255 255 / 0%) 100%),
-      linear-gradient(0deg, rgba(4, 28, 32, 0.62) 0%, rgba(4, 28, 32, 0.2) 50%, transparent 72%);
+  .prod-hero-overlay,
+  .prod-hero-bottom {
+    display: none;
   }
 
   /* roomier touch targets for the stacked footer link lists */
