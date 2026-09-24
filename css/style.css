@@ -3454,6 +3454,28 @@ h1, h2, h3, h4 {
     top: 62px;
   }
 
+  /* show each hero photo whole (matching desktop) instead of a cover-cropped
+     centre slice: the photo becomes a full-width band at its own aspect ratio
+     (--ar set per page) and the headline/copy sits beneath it on the dark
+     hero background */
+  .page-hero-img {
+    padding-top: calc(62px + 100vw / var(--ar, 1.6) + 28px);
+    min-height: 0;
+  }
+  .page-hero-img .phimg-bg {
+    bottom: auto;
+    left: 0;
+    right: 0;
+    height: auto;
+    aspect-ratio: var(--ar, 1.6);
+    background-size: 100% 100%;
+    transform: none;
+    animation: none;
+  }
+  .page-hero-img .phimg-overlay {
+    display: none;
+  }
+
   /* the desktop 105deg wash clears out by ~50% width; on a narrow screen the
      wrapped headline runs past it onto the bright photo — hold the diagonal
      darker for longer and add a vertical darkening from the bottom so the
