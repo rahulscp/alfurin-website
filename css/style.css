@@ -91,6 +91,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* keep with body's overflow-x:hidden — some mobile browsers still let the
+     root scroll sideways otherwise (reveal-* transforms briefly poke past) */
+  overflow-x: hidden;
 }
 
 body {
@@ -1217,8 +1220,8 @@ h1, h2, h3, h4 {
 .prod-hero-bg {
   position: absolute;
   inset: 0;
-    background-size: 50%;
-    background-position: right 80%;
+  background-size: 50%;
+  background-position: right 80%;
   transform: scale(1.04);
   animation: heroZoom 8s ease forwards;
 }
@@ -1282,11 +1285,17 @@ h1, h2, h3, h4 {
   margin-bottom: 28px;
   letter-spacing: -0.025em;
   max-width: 680px;
+  /* keeps the headline (incl. the sage italic) legible where it wraps over
+     the lighter part of the hero photo on narrow screens */
+  text-shadow: 0 1px 12px rgba(4, 20, 16, 0.45);
 }
 
 .prod-headline em {
   font-style: italic;
   color: var(--alfurin-sage);
+  /* the sage tone is pale — give it a firmer shadow than the white words so
+     it holds up over the bright product photo on small screens */
+  text-shadow: 0 1px 14px rgba(4, 20, 16, 0.6);
 }
 
 .prod-subtext {
@@ -1295,6 +1304,7 @@ h1, h2, h3, h4 {
   line-height: 1.55;
   margin-bottom: 44px;
   max-width: 500px;
+  text-shadow: 0 1px 10px rgba(4, 20, 16, 0.4);
 }
 
 .prod-subtext br+br {
@@ -1881,6 +1891,175 @@ h1, h2, h3, h4 {
   border-left: 10px solid var(--gold-200);
 }
 
+/* ── Where to Buy ──────────────────────────────── */
+.wtb {
+  background: var(--bg-300);
+}
+
+/* min(100%, 300px) so a single card can never be wider than a narrow phone */
+.wtb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 22px;
+  margin-top: 56px;
+}
+
+.wtb-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-100);
+  border: 1px solid var(--border-100);
+  border-radius: 16px;
+  padding: 32px 30px 28px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--tr-base), box-shadow var(--tr-base), border-color var(--tr-base);
+}
+
+.wtb-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-gold);
+}
+
+.wtb-country {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--alfurin-deep);
+}
+
+.wtb-card h3 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--text-100);
+}
+
+.wtb-card address {
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-300);
+}
+
+.wtb-contact {
+  list-style: none;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-100);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wtb-contact li {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 0.9rem;
+}
+
+.wtb-contact span {
+  font-family: var(--font-label);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-400);
+}
+
+.wtb-contact a {
+  color: var(--text-100);
+  overflow-wrap: anywhere;
+  transition: color var(--tr-fast);
+  display: inline-block;
+  padding: 3px 0;
+}
+
+.wtb-contact a:hover {
+  color: var(--alfurin-deep);
+  text-decoration: underline;
+}
+
+/* ── Testimonials ──────────────────────────────── */
+.testimonials {
+  background: var(--bg-100);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 56px;
+}
+
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background: var(--bg-100);
+  border: 1px solid var(--border-100);
+  border-radius: 16px;
+  padding: 40px 32px 32px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--tr-base), box-shadow var(--tr-base), border-color var(--tr-base);
+}
+
+.testimonial-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* oversized opening quote mark, same teal accent as the section labels */
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  font-family: var(--font-heading);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--border-200);
+  pointer-events: none;
+}
+
+.testimonial-card blockquote {
+  margin: 0;
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-200);
+}
+
+.testimonial-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-100);
+}
+
+.tst-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-100);
+}
+
+.tst-role {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-400);
+}
+
 /* ── CTA Banner — Teal ─────────────────────────── */
 .cta-banner {
   padding: 110px 0;
@@ -2268,6 +2447,15 @@ h1, h2, h3, h4 {
 
 .mission-card.full {
   grid-column: 1 / -1;
+}
+
+/* Core Values columns — was an inline style with no mobile fallback, which
+   stretched the shared grid track and pushed every card past the screen edge */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 8px;
 }
 
 .mc-label {
@@ -3020,8 +3208,11 @@ h1, h2, h3, h4 {
 
 /* ── Responsive ────────────────────────────────── */
 @media (max-width: 1080px) {
+  /* minmax(0,1fr), not bare 1fr: a wide child (e.g. treatment-list's grid)
+     can't shrink below its own min-content, so it stretches this shared
+     single-column track past the viewport on every row that shares it */
   .about-grid, .rd-grid, .clinical-grid, .contact-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 52px;
   }
 
@@ -3055,13 +3246,18 @@ h1, h2, h3, h4 {
     -webkit-backdrop-filter: none;
   }
 
+  /* the desktop scale(2.5) is centred, so at mobile width the enlarged logo
+     spills past the left edge and adds sideways scroll — pin it to the left
+     and scale down */
+  .nav-logo {
+    transform: scale(1.7);
+    transform-origin: left center;
+  }
+
   .nav-menu {
-    display: none;
+    display: flex;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(9, 36, 45, 0.99);
     flex-direction: column;
     justify-content: center;
@@ -3070,10 +3266,56 @@ h1, h2, h3, h4 {
     z-index: 1002;
     overflow-y: auto;
     padding: 90px 24px 48px;
+    visibility: hidden;
   }
 
   .nav-menu.open {
-    display: flex;
+    visibility: visible;
+  }
+
+  /* Keep the EN | DE toggle in the top bar, not buried in the menu. While the
+     menu is closed it floats just left of the hamburger; when the menu opens
+     it drops back into the list. `visibility:visible` re-shows it past the
+     hidden parent (display:none could not). */
+  .nav-menu .lang-switcher {
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    right: 66px;
+    width: auto;
+    margin: 0;
+    padding: 18px 0;
+    background: transparent;
+    font-size: 0.62rem;
+    z-index: 1003;
+  }
+
+  .navbar.scrolled .nav-menu .lang-switcher {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+
+  .navbar.scrolled .nav-menu .lang-active { color: rgba(28, 66, 54, 0.42); }
+  .navbar.scrolled .nav-menu .lang-sep    { color: rgba(28, 66, 54, 0.28); }
+  .navbar.scrolled .nav-menu .lang-switch {
+    color: var(--text-100);
+    border-color: rgba(28, 66, 54, 0.3);
+  }
+
+  /* menu open: switcher rejoins the list as a normal item */
+  .nav-menu.open .lang-switcher {
+    position: static;
+    width: 100%;
+    justify-content: center;
+    padding: 8px 0;
+    font-size: 0.68rem;
+    background: #563e29;
+  }
+  .nav-menu.open .lang-active { color: rgba(255, 255, 255, 0.35); }
+  .nav-menu.open .lang-sep    { color: rgba(255, 255, 255, 0.2); }
+  .nav-menu.open .lang-switch {
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.22);
   }
 
   .nav-menu>li {
@@ -3138,6 +3380,13 @@ h1, h2, h3, h4 {
     min-width: unset;
   }
 
+  /* the closed menu is only visibility:hidden (so the pinned lang toggle can
+     stay visible) — the dropdown sets its own visibility:visible, so re-hide
+     it until the menu is actually open */
+  .nav-menu:not(.open) .dropdown-menu {
+    visibility: hidden;
+  }
+
   .dropdown-menu li a {
     color: rgba(255, 255, 255, 0.45);
     padding: 6px 16px;
@@ -3184,7 +3433,96 @@ h1, h2, h3, h4 {
     font-size: 3rem;
   }
 
+  /* home hero: keep the whole product photo (labels and all) like the desktop
+     layout, but a portrait photo can't sit beside the text on a phone — so the
+     text comes first on the brand-green and the photo follows it at its own
+     2:3 shape, its top edge faded into the green and tucked ~38vw up under
+     the last text lines (that strip of the picture is empty stone) */
+  .prod-hero {
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 62px;
+    background: #1c4236;
+  }
+  .prod-hero-content {
+    order: 1;
+    padding: 28px 24px 0;
+  }
+  .prod-hero-bg {
+    order: 2;
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    margin-top: -38vw;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: none;
+    animation: none;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 24%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 24%);
+  }
+
+  /* page-hero photos run from y=0, so the fixed 62px navbar sits on top of the
+     first slice of every picture (heads cut off on About/Contact). Start the
+     photo below the bar instead — nothing visible is lost, the hidden strip
+     is simply no longer wasted behind the nav. */
+  .phimg-bg {
+    top: 62px;
+  }
+
+  /* show each hero photo whole (matching desktop) instead of a cover-cropped
+     centre slice: the photo becomes a full-width band at its own aspect ratio
+     (--ar set per page) and the headline/copy sits beneath it on the dark
+     hero background */
+  .page-hero-img {
+    padding-top: calc(62px + 100vw / var(--ar, 1.6) + 28px);
+    min-height: 0;
+  }
+  .page-hero-img .phimg-bg {
+    bottom: auto;
+    left: 0;
+    right: 0;
+    height: auto;
+    aspect-ratio: var(--ar, 1.6);
+    background-size: 100% 100%;
+    transform: none;
+    animation: none;
+  }
+  .page-hero-img .phimg-overlay {
+    display: none;
+  }
+
+  /* the desktop 105deg wash clears out by ~50% width; on a narrow screen the
+     wrapped headline runs past it onto the bright photo — hold the diagonal
+     darker for longer and add a vertical darkening from the bottom so the
+     whole text block stays readable */
+  .prod-hero-overlay,
+  .prod-hero-bottom {
+    display: none;
+  }
+
+  /* roomier touch targets for the stacked footer link lists */
+  .footer-links {
+    gap: 4px;
+  }
+
+  .footer-links a {
+    display: inline-block;
+    padding: 7px 0;
+  }
+
   .prod-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3218,8 +3556,20 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* minmax(0,1fr), not 1fr: a bare 1fr can't shrink below its content's
+     min-content width, so one wide child stretches the whole track */
   .focus-grid, .why-grid, .mission-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* the "Discover ALFURIN" scroll cue sits on top of the hero buttons once
+     the hero content wraps on a phone */
+  .hero-scroll {
+    display: none;
   }
 
   .symptoms-grid, .types-grid, .treatment-list, .trials-grid {
@@ -3239,6 +3589,14 @@ h1, h2, h3, h4 {
     flex-direction: column;
     gap: 14px;
     text-align: center;
+  }
+
+  /* three legal links never wrapped (no flex-wrap) — longer translated
+     labels (German especially) forced this row wider than the screen */
+  .footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 6px;
   }
 
   .hero-cta-grid {
@@ -3280,6 +3638,14 @@ h1, h2, h3, h4 {
 @media (max-width: 520px) {
   .symptoms-grid, .types-grid, .treatment-list, .trials-grid, .clinical-cards {
     grid-template-columns: 1fr;
+  }
+
+  /* .btn forces white-space:nowrap so short labels never break mid-word;
+     the science page's longer CTAs ("Download the full patch test") have
+     no room to stay on one line at this width and were overflowing it */
+  .btn {
+    white-space: normal;
+    text-align: center;
   }
 
   .hero-headline {
@@ -3633,6 +3999,21 @@ body.theme-alfurin .cem-address {
 body.theme-alfurin .section-label::before,
 body.theme-alfurin .sym-dot {
   background: var(--alfurin-deep);
+}
+
+/* the themed dark-green label/breadcrumb is meant for light sections; inside a
+   photo hero (contact, psoriasis) it vanished into the picture — use the same
+   light treatment the un-themed page heroes get */
+body.theme-alfurin .page-hero-img .section-label {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.theme-alfurin .page-hero-img .section-label::before {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+body.theme-alfurin .page-hero-img .breadcrumb .current {
+  color: rgba(186, 242, 249, 0.9);
 }
 
 body.theme-alfurin .cem-address:hover {

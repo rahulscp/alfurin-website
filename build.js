@@ -88,34 +88,43 @@ function langUrl(targetLang, file) {
   return domain ? `${trimSlash(domain)}/${file}` : `../${targetLang}/${file}`;
 }
 
-// Quick nav toggle: "<CODE> | EN" on every non-English build, linking to a
-// same-domain /en subfolder (a nested copy of the English build baked into
-// every other language's output — see the "en" nesting step in the main
-// build loop below) rather than jumping to a different domain.
+// Quick nav toggle: "<CODE> | <SECONDARY>" on every build whose languages.json
+// entry sets a "secondary" language. The secondary is baked into this bucket as
+// a same-domain /<secondary>/ subfolder (see the nesting step in the main build
+// loop below), so the toggle never jumps to another domain. This is the
+// "language hierarchy" per country — e.g. en → secondary "de" for alfurin.com,
+// ch → secondary "en" for the Swiss site.
 //
-// The standalone English build (dist/en/) just shows "EN" — it's the hub
-// every other language points back to, so it needs no toggle of its own
-// (the full cross-domain list lives in the footer via buildFooterLanguages).
+// A build with no "secondary" just shows its own badge (the full cross-domain
+// list still lives in the footer via buildFooterLanguages).
 //
-// But the English copy NESTED inside another language's folder (dist/nl/en/)
-// isn't that hub — it needs its own way back to the specific language it's
-// nested in. `nestedBack` carries that: { code, prefix } for the parent
-// language's code and the relative path prefix to reach it (one dir up).
+// The copy NESTED inside another language's folder (e.g. dist/de/en/) needs its
+// own way back to the specific parent it lives in. `nestedBack` carries that:
+// { code, prefix } for the parent language's code and the relative path prefix
+// to reach it (one dir up).
 function buildLangSwitcher(activeLang, file, nestedBack) {
   const code = languages[activeLang].code;
 
-  if (activeLang === 'en' && !nestedBack) {
-    return `      <li class="lang-switcher"><span class="lang-active">${code}</span></li>`;
+  if (nestedBack) {
+    return [
+      `      <li class="lang-switcher">`,
+      `        <span class="lang-active">${code}</span>`,
+      `        <span class="lang-sep">|</span>`,
+      `        <a href="${nestedBack.prefix}${file}" class="lang-switch">${nestedBack.code}</a>`,
+      `      </li>`,
+    ].join('\n');
   }
 
-  const backCode = nestedBack ? nestedBack.code : 'EN';
-  const backHref = nestedBack ? `${nestedBack.prefix}${file}` : `/en/${file}`;
+  const secondary = languages[activeLang].secondary;
+  if (!secondary || secondary === activeLang || !languages[secondary]) {
+    return `      <li class="lang-switcher"><span class="lang-active">${code}</span></li>`;
+  }
 
   return [
     `      <li class="lang-switcher">`,
     `        <span class="lang-active">${code}</span>`,
     `        <span class="lang-sep">|</span>`,
-    `        <a href="${backHref}" class="lang-switch">${backCode}</a>`,
+    `        <a href="/${secondary}/${file}" class="lang-switch">${languages[secondary].code}</a>`,
     `      </li>`,
   ].join('\n');
 }
@@ -224,15 +233,16 @@ for (const lang of buildLangs) {
   const outDir = path.join(OUT_DIR, lang);
   writeLanguageBuild(lang, outDir, `${OUT_DIR}/${lang}`);
 
-  // Nest a same-domain /en copy so the nav's quick "EN" toggle never has to
-  // jump to a different domain — it always resolves to a local /en subfolder
-  // that ships inside every non-English bucket. That nested copy gets its
-  // own way back to this specific language (not the generic "EN" hub logic),
-  // so switching to English and back again stays inside the same bucket.
-  if (lang !== 'en') {
-    const enDir = path.join(outDir, 'en');
+  // Nest a same-domain copy of this language's configured "secondary" language
+  // so the nav's quick toggle resolves to a local /<secondary>/ subfolder inside
+  // this bucket rather than jumping to another domain. The nested copy gets its
+  // own way back to this specific parent language, so toggling out and back
+  // stays inside the same bucket.
+  const secondary = languages[lang].secondary;
+  if (secondary && secondary !== lang && languages[secondary]) {
+    const secDir = path.join(outDir, secondary);
     const nestedBack = { code: languages[lang].code, prefix: '../' };
-    writeLanguageBuild('en', enDir, `${OUT_DIR}/${lang}/en`, nestedBack);
+    writeLanguageBuild(secondary, secDir, `${OUT_DIR}/${lang}/${secondary}`, nestedBack);
   }
 }
 
