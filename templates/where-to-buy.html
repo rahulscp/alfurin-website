@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{meta.wtb.title}}</title>
+  <meta name="description" content="{{meta.wtb.desc}}">
+  <link rel="icon" href="{{ASSET_PREFIX}}images/logo/logo.svg" type="image/svg+xml">
+  <!-- Critical: keep the closed mobile nav menu off-screen from the very first
+       paint, before style.css/fonts finish loading on a slow connection —
+       otherwise the full-screen menu list briefly overlaps the hero on load. -->
+  <style>@media (max-width:768px){.nav-menu:not(.open){position:fixed;inset:0;visibility:hidden}}</style>
+{{HREFLANG}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ASSET_PREFIX}}css/style.css">
+</head>
+<body{{BODY_CLASS_ATTR}}>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">{{nav.home}}</a></li>
+      <li class="nav-dropdown">
+        <a href="about.html" class="nav-link">{{nav.company}} <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">{{nav.about}}</a></li>
+          <li><a href="contact.html">{{nav.contact}}</a></li>
+        </ul>
+      </li>
+      <li><a href="science.html" class="nav-link">{{nav.science}}</a></li>
+      <li><a href="psoriasis.html" class="nav-link">{{nav.disease}}</a></li>
+      <li><a href="where-to-buy.html" class="nav-link active">{{nav.buy}}</a></li>
+      <li><a href="contact.html" class="btn btn-primary">{{nav.cta}}</a></li>
+{{LANG_SWITCHER}}
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero page-hero-img" style="--ar:1.5">
+  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/KRK06886.jpg')"></div>
+  <div class="phimg-overlay"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">{{breadcrumb.home}}</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="current">{{wtb.hero.breadcrumb}}</span>
+      </div>
+      <div class="section-label">{{wtb.hero.label}}</div>
+      <h1>{{wtb.hero.h1.pre}} <span class="gradient-text">{{wtb.hero.h1.accent}}</span></h1>
+      <p>{{wtb.hero.p}}</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Retail Partners -->
+<!-- Retailer details are language-independent, so they live here rather than in locales/ -->
+<section class="section wtb" id="where-to-buy" style="background:var(--bg-100)">
+  <div class="container">
+    <div class="section-header centered reveal-up">
+      <div class="section-label centered">{{home.wtb.label}}</div>
+      <h2 class="section-title">{{wtb.grid.h2}}</h2>
+      <p class="section-subtitle">{{home.wtb.sub}}</p>
+    </div>
+    <div class="wtb-grid">
+
+      <article class="wtb-card reveal-up" style="--delay:0.06s">
+        <div class="wtb-country">{{home.wtb.country.de}}</div>
+        <h3>Sankt Georg Apotheke</h3>
+        <address>Kohlschütterstraße 9<br>06114 Halle (Saale)</address>
+        <ul class="wtb-contact">
+          <li><span>{{home.wtb.email}}</span><a href="mailto:info@st-georg-halle.de">info@st-georg-halle.de</a></li>
+          <li><span>{{home.wtb.phone}}</span><a href="tel:+493455211992">+49 345 5211992</a></li>
+        </ul>
+      </article>
+
+      <article class="wtb-card reveal-up" style="--delay:0.12s">
+        <div class="wtb-country">{{home.wtb.country.de}}</div>
+        <h3>Alpha Apotheke</h3>
+        <address>Hans-Böckler-Str. 1-19<br>44787 Bochum</address>
+        <ul class="wtb-contact">
+          <li><span>{{home.wtb.email}}</span><a href="mailto:service@alpha-apotheke-bochum.de">service@alpha-apotheke-bochum.de</a></li>
+          <li><span>{{home.wtb.phone}}</span><a href="tel:+492348937980">+49 234 89 37 98 0</a></li>
+        </ul>
+      </article>
+
+      <article class="wtb-card reveal-up" style="--delay:0.18s">
+        <div class="wtb-country">{{home.wtb.country.fr}}</div>
+        <h3>PHI3D Cosmetic (Beauty &amp; Curves Paris)</h3>
+        <address>10 rue Marcel Renault<br>75017 Paris</address>
+        <ul class="wtb-contact">
+          <li><span>{{home.wtb.email}}</span><a href="mailto:contact@onepariskincare.com">contact@onepariskincare.com</a></li>
+          <li><span>{{home.wtb.phone}}</span><a href="tel:+33778870503">+33 7 78 87 05 03</a></li>
+        </ul>
+      </article>
+
+      <article class="wtb-card reveal-up" style="--delay:0.06s">
+        <div class="wtb-country">{{home.wtb.country.cz}}</div>
+        <h3>Dermitage s.r.o.</h3>
+        <address>Železná 14<br>110 00 Praha 1</address>
+        <ul class="wtb-contact">
+          <li><span>{{home.wtb.email}}</span><a href="mailto:obchod@dermitage.cz">obchod@dermitage.cz</a></li>
+          <li><span>{{home.wtb.phone}}</span><a href="tel:+420603163330">+420 603 163 330</a></li>
+        </ul>
+      </article>
+
+      <article class="wtb-card reveal-up" style="--delay:0.12s">
+        <div class="wtb-country">{{home.wtb.country.ch}}</div>
+        <h3>Alsyslife AG</h3>
+        <address>G07, Switzerland Innovation Park Basel Area<br>Hegenheimermattweg 167A<br>4123 Allschwil</address>
+        <ul class="wtb-contact">
+          <li><span>{{home.wtb.email}}</span><a href="mailto:phanisripada@alsyslife.com">phanisripada@alsyslife.com</a></li>
+          <li><span>{{home.wtb.phone}}</span><a href="tel:+41798898163">+41 79 889 81 63</a></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>{{wtb.cta.h2}}</h2>
+    <p>{{wtb.cta.p}}</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn btn-primary">{{about.cta.btn1}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="{{ASSET_PREFIX}}images/logo/logo.svg" alt="AlsysLife" class="footer-logo">
+        <p class="footer-desc">{{footer.desc}}</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="social-link" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.company}}</div>
+        <ul class="footer-links">
+          <li><a href="about.html">{{footer.link.about}}</a></li>
+          <li><a href="research.html">{{footer.link.rd}}</a></li>
+          <li><a href="pipeline.html">{{footer.link.pipeline}}</a></li>
+          <li><a href="clinical-trials.html">{{footer.link.clinical}}</a></li>
+          <li><a href="psoriasis.html">{{footer.link.disease}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.quicklinks}}</div>
+        <ul class="footer-links">
+          <li><a href="where-to-buy.html">{{nav.buy}}</a></li>
+          <li><a href="contact.html">{{footer.link.contact}}</a></li>
+          <li><a href="contact.html#partnering">{{footer.link.partnering}}</a></li>
+          <li><a href="contact.html">{{footer.link.investor}}</a></li>
+          <li><a href="contact.html">{{footer.link.careers}}</a></li>
+          <li><a href="contact.html">{{footer.link.media}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">{{footer.col.offices}}</div>
+        <div class="footer-office">
+          <div class="fo-country">🇨🇭 Switzerland</div>
+          <div class="fo-addr">Basel Innovation Park<br>Allschwil, Basel, Switzerland</div>
+        </div>
+        <div class="footer-office">
+          <div class="fo-country">🇺🇸 United States</div>
+          <div class="fo-addr">{{footer.addr.us}}</div>
+        </div>
+        <div class="footer-office">
+          <div class="fo-country">🇮🇳 India</div>
+          <div class="fo-addr">Genome Valley, Hyderabad<br>Telangana, India</div>
+        </div>
+      </div>
+    </div>
+{{FOOTER_LANGUAGES}}
+    <div class="footer-bottom">
+      <span class="footer-copy">{{footer.copy}}</span>
+      <div class="footer-legal">
+        <a href="#">{{footer.legal.privacy}}</a>
+        <a href="#">{{footer.legal.terms}}</a>
+        <a href="#">{{footer.legal.cookie}}</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{{DISCLAIMER_DATA}}
+<script src="{{ASSET_PREFIX}}js/main.js"></script>
+</body>
+</html>

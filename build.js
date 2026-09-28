@@ -36,6 +36,7 @@ const PAGES = [
   { name: 'about',           bodyClass: ''              },
   { name: 'contact',         bodyClass: 'theme-alfurin' },
   { name: 'psoriasis',       bodyClass: 'theme-alfurin' },
+  { name: 'where-to-buy',    bodyClass: 'theme-alfurin' },
   { name: 'pipeline',        bodyClass: ''              },
   { name: 'clinical-trials', bodyClass: ''              },
   { name: 'research',        bodyClass: ''              },

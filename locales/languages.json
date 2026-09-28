@@ -2,7 +2,7 @@
   "en": { "label": "English", "code": "EN", "domain": "https://www.alfurin.com", "secondary": "de", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
   "de": { "label": "Deutsch", "code": "DE", "domain": "", "secondary": "en", "flag": "🇩🇪" },
   "es": { "label": "Español", "code": "ES", "domain": "https://www.alfurin.es", "secondary": "en", "flag": "🇪🇸" },
-  "nl": { "label": "Nederlands", "code": "NL", "domain": "https://www.alfurin.nl", "locale": "en", "flag": "🇳🇱" },
+  "nl": { "label": "Nederlands", "code": "NL", "domain": "https://www.alfurin.nl", "secondary": "en", "flag": "🇳🇱" },
   "cs": { "label": "Čeština", "code": "CS", "domain": "https://www.alfurin.cz", "secondary": "en", "flag": "🇨🇿" },
   "ch": { "label": "Deutsch (Schweiz)", "code": "CH", "domain": "", "locale": "de", "secondary": "en", "flag": "🇨🇭" },
   "it": { "label": "Italiano", "code": "IT", "domain": "", "secondary": "en", "flag": "🇮🇹" },
