@@ -6,6 +6,10 @@
   <title>{{meta.contact.title}}</title>
   <meta name="description" content="{{meta.contact.desc}}">
   <link rel="icon" href="{{ASSET_PREFIX}}images/logo/logo.svg" type="image/svg+xml">
+  <!-- Critical: keep the closed mobile nav menu off-screen from the very first
+       paint, before style.css/fonts finish loading on a slow connection —
+       otherwise the full-screen menu list briefly overlaps the hero on load. -->
+  <style>@media (max-width:768px){.nav-menu:not(.open){position:fixed;inset:0;visibility:hidden}}</style>
 {{HREFLANG}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +44,7 @@
 </nav>
 
 <!-- Page Hero -->
-<section class="page-hero page-hero-img">
+<section class="page-hero page-hero-img" style="--ar:1.9">
   <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/contact.jpg')"></div>
   <div class="phimg-overlay"></div>
   <div class="container">
@@ -234,7 +238,7 @@
         <ul class="footer-links">
           <li><a href="contact.html">{{footer.link.contact}}</a></li>
           <li><a href="#partnering">{{footer.link.partnering}}</a></li>
-          <li><a href="#investors">{{footer.link.investor}}</a></li>
+          <li><a href="contact.html">{{footer.link.investor}}</a></li>
           <li><a href="contact.html">{{footer.link.careers}}</a></li>
           <li><a href="contact.html">{{footer.link.media}}</a></li>
         </ul>
