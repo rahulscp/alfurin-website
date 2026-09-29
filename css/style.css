@@ -1220,8 +1220,12 @@ h1, h2, h3, h4 {
 .prod-hero-bg {
   position: absolute;
   inset: 0;
-  background-size: 50%;
-  background-position: right 80%;
+  /* contain, not cover: the whole photo stays visible on every screen size,
+     nothing gets cropped off. Anchored right so it sits behind the product
+     copy's dead space instead of overlapping the text on the left. */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
   transform: scale(1.04);
   animation: heroZoom 8s ease forwards;
 }
@@ -2304,12 +2308,7 @@ h1, h2, h3, h4 {
 .page-hero-img {
   padding-top: 170px;
   padding-bottom: 80px;
-  /* was 480px: on a wide desktop screen this short a banner forces
-     background-size:cover to blow the photo up far past its natural
-     size and keep only a thin horizontal slice of it (worse the closer
-     the photo's own aspect ratio is to square) — taller here means less
-     of every photo gets thrown away. */
-  min-height: 560px;
+  min-height: 480px;
   display: flex;
   align-items: flex-end;
   background: #06202A;
@@ -2322,7 +2321,14 @@ h1, h2, h3, h4 {
 .phimg-bg {
   position: absolute;
   inset: 0;
-  background-size: cover;
+  /* contain, not cover: on a banner this much wider than any of these
+     photos, cover was blowing each one up and throwing away most of it
+     (heads cropped off on About/Contact, products barely recognisable on
+     Where to Buy). contain always shows the whole photo — letterboxed
+     into the hero's own dark background rather than cropped — and this
+     is the same rule on every screen size, so mobile and desktop match. */
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   transform: scale(1.04);
   animation: heroZoom 8s ease forwards;
@@ -3444,21 +3450,6 @@ h1, h2, h3, h4 {
 
   .prod-headline {
     font-size: 3rem;
-  }
-
-  /* the desktop background-size:50% tiles the photo on a narrow screen (the
-     container is nowhere near twice the image's natural width there) —
-     cover + no-repeat only below this breakpoint; desktop keeps its original
-     crop/positioning untouched. Client feedback: keep mobile matching
-     desktop's full-bleed photo-with-overlay look (text flowing over the
-     image), not a different "text block, then photo" layout. */
-  .prod-hero-bg {
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* desktop anchors the photo hard right; on a phone that window only ever
-       caught a dim slice of one tube sitting under the headline — 72% slides it
-       right so the tube (and the box behind it) read clearly */
-    background-position: 72% 80%;
   }
 
   /* page-hero photos run from y=0, so the fixed 62px navbar sits on top of the
