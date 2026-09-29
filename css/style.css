@@ -2304,7 +2304,12 @@ h1, h2, h3, h4 {
 .page-hero-img {
   padding-top: 170px;
   padding-bottom: 80px;
-  min-height: 480px;
+  /* was 480px: on a wide desktop screen this short a banner forces
+     background-size:cover to blow the photo up far past its natural
+     size and keep only a thin horizontal slice of it (worse the closer
+     the photo's own aspect ratio is to square) — taller here means less
+     of every photo gets thrown away. */
+  min-height: 560px;
   display: flex;
   align-items: flex-end;
   background: #06202A;
@@ -2326,10 +2331,14 @@ h1, h2, h3, h4 {
 .phimg-overlay {
   position: absolute;
   inset: 0;
+  /* darkened a bit further (was 0.80/0.52/0.20) — the text sits at the left
+     of this gradient, and on a busy photo (products, patterned background)
+     the old values weren't reliably dark enough there for the white text
+     to read cleanly on every hero photo. */
   background: linear-gradient(112deg,
-      rgba(4, 24, 30, 0.80) 0%,
-      rgba(4, 24, 30, 0.52) 48%,
-      rgba(4, 24, 30, 0.20) 100%);
+      rgba(4, 24, 30, 0.86) 0%,
+      rgba(4, 24, 30, 0.62) 48%,
+      rgba(4, 24, 30, 0.30) 100%);
 }
 
 .phimg-overlay::after {
@@ -2380,6 +2389,10 @@ h1, h2, h3, h4 {
 
 .page-hero-img h1 {
   color: #ffffff;
+  /* insurance against busy/bright hero photos (product shots, patterned
+     backgrounds) behind the white text — cheap, and invisible on the
+     plainer photos where it isn't needed. */
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
 .page-hero-img .gradient-text {

@@ -46,7 +46,11 @@
 
 <!-- Page Hero -->
 <section class="page-hero page-hero-img" style="--ar:1.9">
-  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/aboutus.jpg')"></div>
+  <!-- default background-position:center cropped everyone's heads off on a
+       wide desktop screen (this banner is much wider than the photo) —
+       biased to the top so faces stay in frame; background-size:100% 100%
+       on mobile makes the position irrelevant there. -->
+  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/aboutus.jpg');background-position:center 8%"></div>
   <div class="phimg-overlay"></div>
   <div class="container">
     <div class="page-hero-inner">
