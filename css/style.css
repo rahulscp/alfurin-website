@@ -2308,7 +2308,13 @@ h1, h2, h3, h4 {
 .page-hero-img {
   padding-top: 170px;
   padding-bottom: 80px;
-  min-height: 480px;
+  /* was a flat 480px, the same for every photo regardless of its own
+     shape — on anything but a photo whose aspect happened to match that
+     box, contain (below) had empty letterboxed space left over. Sizing
+     the box itself to each photo's own aspect ratio (--ar, set per page)
+     means the box's shape always matches the photo's shape, so contain
+     fills it edge to edge with no waste, at any screen width. */
+  min-height: calc(100vw / var(--ar, 1.6));
   display: flex;
   align-items: flex-end;
   background: #06202A;
@@ -2321,12 +2327,11 @@ h1, h2, h3, h4 {
 .phimg-bg {
   position: absolute;
   inset: 0;
-  /* contain, not cover: on a banner this much wider than any of these
-     photos, cover was blowing each one up and throwing away most of it
-     (heads cropped off on About/Contact, products barely recognisable on
-     Where to Buy). contain always shows the whole photo — letterboxed
-     into the hero's own dark background rather than cropped — and this
-     is the same rule on every screen size, so mobile and desktop match. */
+  /* contain: still the safety net for the rare case this section grows
+     taller than --ar implies (very short/long text pushing past the
+     photo's own height) — never crops, never distorts. With min-height
+     now matching the photo's real shape, that case is the exception, not
+     the rule, so contain fills edge-to-edge almost everywhere. */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
