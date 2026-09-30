@@ -2306,15 +2306,13 @@ h1, h2, h3, h4 {
 
 /* Image-backed page hero variant */
 .page-hero-img {
-  padding-top: 170px;
-  padding-bottom: 80px;
-  /* was a flat 480px, the same for every photo regardless of its own
-     shape — on anything but a photo whose aspect happened to match that
-     box, contain (below) had empty letterboxed space left over. Sizing
-     the box itself to each photo's own aspect ratio (--ar, set per page)
-     means the box's shape always matches the photo's shape, so contain
-     fills it edge to edge with no waste, at any screen width. */
-  min-height: calc(100vw / var(--ar, 1.6));
+  padding-top: 150px;
+  padding-bottom: 64px;
+  /* scales with the viewport's own height so the photo is a proper,
+     prominent banner (not a thin strip with most of the screen showing
+     the next section already) - capped so it can never grow tall enough
+     to push the heading below the fold on a short/wide window. */
+  min-height: min(64vh, 600px);
   display: flex;
   align-items: flex-end;
   background: #06202A;
@@ -2326,14 +2324,24 @@ h1, h2, h3, h4 {
 
 .phimg-bg {
   position: absolute;
-  inset: 0;
-  /* contain: still the safety net for the rare case this section grows
-     taller than --ar implies (very short/long text pushing past the
-     photo's own height) — never crops, never distorts. With min-height
-     now matching the photo's real shape, that case is the exception, not
-     the rule, so contain fills edge-to-edge almost everywhere. */
-  background-size: contain;
-  background-repeat: no-repeat;
+  /* top:0 (the rest of inset:0) put the photo's own top edge directly
+     behind the fixed navbar - the navbar is solid on every one of these
+     pages (not the transparent-over-hero state), so it was flatly hiding
+     a slice of the photo, not just dimming it. With the crop now biased
+     toward the top of the photo (faces), that hidden slice is exactly
+     where a face often sits. Starting the photo below the navbar's own
+     height instead means nothing gets hidden behind it, at any width. */
+  top: 63px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* back to cover: a fixed-height banner and "never crop" can't both be
+     true for every photo shape, and the client's priority here is the
+     opposite of last time - keep the banner short enough to read the
+     headline immediately, and it's fine to lose some of the photo (legs,
+     background) to get there, as long as faces stay fully in frame
+     (background-position tuned per page below where that matters). */
+  background-size: cover;
   background-position: center;
   transform: scale(1.04);
   animation: heroZoom 8s ease forwards;
@@ -3455,14 +3463,6 @@ h1, h2, h3, h4 {
 
   .prod-headline {
     font-size: 3rem;
-  }
-
-  /* page-hero photos run from y=0, so the fixed 62px navbar sits on top of the
-     first slice of every picture (heads cut off on About/Contact). Start the
-     photo below the bar instead — nothing visible is lost, the hidden strip
-     is simply no longer wasted behind the nav. */
-  .phimg-bg {
-    top: 62px;
   }
 
   /* the desktop 105deg wash clears out by ~50% width; on a narrow screen the

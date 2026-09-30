@@ -46,7 +46,9 @@
 
 <!-- Page Hero -->
 <section class="page-hero page-hero-img" style="--ar:1.9">
-  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/aboutus.jpg')"></div>
+  <!-- biased to the top of the photo so faces stay fully in frame; the crop
+       only ever loses the lower half (torsos/hands), never heads -->
+  <div class="phimg-bg" style="background-image:url('{{ASSET_PREFIX}}images/aboutus.jpg');background-position:center 12%"></div>
   <div class="phimg-overlay"></div>
   <div class="container">
     <div class="page-hero-inner">
