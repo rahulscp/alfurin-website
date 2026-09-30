@@ -185,9 +185,21 @@ function canonicalTag(lang, file) {
 }
 
 // ── Build one page for one language ───────────────────────────────────────────
+// Strips <!--XX_ONLY_START-->...<!--XX_ONLY_END--> blocks for every build
+// except lang "xx" — e.g. the German-market-only retailer cards on the
+// Where to Buy grid, which shouldn't show on the other 8 language builds.
+// The markers themselves are always removed; the content in between is
+// kept only when it matches the language being built right now.
+function stripLangOnlyBlocks(html, lang) {
+  return html.replace(/<!--([A-Z]{2})_ONLY_START-->([\s\S]*?)<!--\1_ONLY_END-->/g,
+    (_match, code, inner) => (code.toLowerCase() === lang ? inner : ''));
+}
+
 function buildPage(page, lang, nestedBack) {
   const file = page.name + '.html';
   let html   = fs.readFileSync(path.join('templates', file), 'utf8');
+
+  html = stripLangOnlyBlocks(html, lang);
 
   const bodyAttr = page.bodyClass ? ` class="${page.bodyClass}"` : '';
   const t        = locales[lang];
