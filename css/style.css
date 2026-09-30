@@ -1949,6 +1949,12 @@ h1, h2, h3, h4 {
   color: var(--text-300);
 }
 
+.wtb-person {
+  font-size: 0.82rem;
+  color: var(--text-300);
+  margin-top: -6px;
+}
+
 .wtb-contact {
   list-style: none;
   margin-top: auto;
