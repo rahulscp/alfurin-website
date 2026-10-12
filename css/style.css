@@ -1567,6 +1567,28 @@ h1, h2, h3, h4 {
   line-height: 1.65;
 }
 
+.usage-title {
+  margin: 30px 0 -18px;
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--alfurin-deep);
+}
+
+.usage-note {
+  margin: 18px 0 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--alfurin-deep);
+  border-radius: 0 10px 10px 0;
+  background: var(--bg-100);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--text-100);
+}
+
 /* Photo gallery */
 .prod-gallery {
   line-height: 0;
