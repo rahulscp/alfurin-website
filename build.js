@@ -44,7 +44,7 @@ const PAGES = [
 ];
 
 const STATIC_DIRS  = ['css', 'js', 'images'];
-const STATIC_FILES = ['logo.png', 'ALFURIN_Patient_Flyer_EN.pdf', 'ALFURIN_Skin_Compatibility_Report.pdf'];
+const STATIC_FILES = ['logo.png', 'ALFURIN_Patient_Flyer_EN.pdf', 'ALFURIN_Patient_Flyer_DE.pdf', 'ALFURIN_Skin_Compatibility_Report.pdf'];
 
 // ── Load language config + translation files ─────────────────────────────────
 const languages = JSON.parse(fs.readFileSync('locales/languages.json', 'utf8'));
